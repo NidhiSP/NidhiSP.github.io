@@ -1,0 +1,1416 @@
+<!DOCTYPE html>
+<html lang="en" class="dark scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nidhi Satishkumar Patel | Data Analyst | Data Scientist | ML/AI Engineer</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Google Fonts: Inter & JetBrains Mono -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#ecfeff',
+                            100: '#cffaff',
+                            500: '#06b6d4',
+                            600: '#0891b2',
+                            700: '#0e7490',
+                            900: '#164e63',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: rgba(15, 23, 42, 0.8);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #334155;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #0891b2;
+        }
+
+        /* Glassmorphism Styles */
+        .glass-card {
+            background: rgba(30, 41, 59, 0.75);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .glass-nav {
+            background: rgba(15, 23, 42, 0.92);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Skill Tags */
+        .skill-tag {
+            background: rgba(15, 23, 42, 0.7);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            color: #cbd5e1;
+            padding: 0.25rem 0.65rem;
+            border-radius: 0.5rem;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+
+        .glow-cyan {
+            box-shadow: 0 0 25px -5px rgba(6, 182, 212, 0.2);
+        }
+        
+        .glow-violet {
+            box-shadow: 0 0 25px -5px rgba(139, 92, 246, 0.2);
+        }
+    </style>
+</head>
+<body class="bg-slate-950 text-slate-100 font-sans min-h-screen transition-colors duration-300 selection:bg-cyan-500 selection:text-slate-950">
+
+    <!-- TOP NAVIGATION BAR -->
+    <header class="sticky top-0 z-50 glass-nav transition-all duration-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-4">
+            
+            <!-- TOP LEFT: Name & Roles -->
+            <div class="flex items-center space-x-3 shrink-0">
+                <div class="w-12 h-12 rounded-xl bg-gradient-to-tr from-cyan-500 to-violet-600 flex items-center justify-center font-extrabold text-white text-xl shadow-lg shrink-0">
+                    NP
+                </div>
+                <div class="flex flex-col justify-center">
+                    <span class="font-extrabold text-white text-2xl sm:text-3xl leading-tight block tracking-tight" id="header-name">
+                        Nidhi Patel
+                    </span>
+                    <span class="text-xs sm:text-sm text-cyan-400 font-medium tracking-wide whitespace-nowrap block" id="header-title">
+                        Data Analyst | Data Scientist | ML/AI Engineer
+                    </span>
+                </div>
+            </div>
+
+            <!-- Main Tab Navigation (Desktop) - Clean & Fit (No scroll) -->
+            <nav class="hidden lg:flex items-center space-x-1 bg-slate-900/90 p-1.5 rounded-xl border border-slate-800 text-xs font-semibold">
+                <button onclick="switchTab('cover-letter')" id="tab-btn-cover-letter" class="main-tab-btn whitespace-nowrap px-3 py-2 rounded-lg transition-all bg-gradient-to-r from-cyan-500 to-violet-600 text-white shadow">
+                    <i class="fa-solid fa-file-lines mr-1.5"></i> <span data-i18n="nav.coverLetter">Cover Letter</span>
+                </button>
+                <button onclick="switchTab('story')" id="tab-btn-story" class="main-tab-btn whitespace-nowrap px-3 py-2 rounded-lg text-slate-400 hover:text-white transition-all">
+                    <i class="fa-solid fa-lightbulb mr-1.5"></i> <span data-i18n="nav.story">Problem Solving Story</span>
+                </button>
+                <button onclick="switchTab('case-studies')" id="tab-btn-case-studies" class="main-tab-btn whitespace-nowrap px-3 py-2 rounded-lg text-slate-400 hover:text-white transition-all">
+                    <i class="fa-solid fa-folder-open mr-1.5"></i> <span data-i18n="nav.caseStudies">Case Studies</span>
+                </button>
+                <button onclick="switchTab('adaptability')" id="tab-btn-adaptability" class="main-tab-btn whitespace-nowrap px-3 py-2 rounded-lg text-slate-400 hover:text-white transition-all">
+                    <i class="fa-solid fa-sliders mr-1.5"></i> <span data-i18n="nav.adaptability">Adaptability & Skills</span>
+                </button>
+                <button onclick="switchTab('interactive-portfolio')" id="tab-btn-interactive-portfolio" class="main-tab-btn whitespace-nowrap px-3 py-2 rounded-lg text-slate-400 hover:text-white transition-all">
+                    <i class="fa-solid fa-laptop-code mr-1.5"></i> <span data-i18n="nav.interactivePortfolio">Interactive Portfolio</span>
+                </button>
+            </nav>
+
+            <!-- Actions: DeepL DE Translation -->
+            <div class="flex items-center space-x-2 shrink-0">
+                <button onclick="toggleGermanTranslation()" id="translate-btn" title="Toggle DeepL Translation (DE/EN)" class="px-3.5 py-2 bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 rounded-lg text-xs font-bold flex items-center gap-1.5 transition cursor-pointer">
+                    <i class="fa-solid fa-language text-amber-400 text-sm"></i> <span id="translate-btn-text">DE</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Bar -->
+        <div class="lg:hidden px-4 py-2 border-t border-slate-800 flex overflow-x-auto space-x-2 text-xs no-scrollbar">
+            <button onclick="switchTab('cover-letter')" id="mob-btn-cover-letter" class="mob-tab-btn shrink-0 whitespace-nowrap px-3.5 py-2 bg-cyan-600 text-white rounded-lg font-medium">
+                <i class="fa-solid fa-file-lines mr-1"></i> <span data-i18n="nav.coverLetter">Cover Letter</span>
+            </button>
+            <button onclick="switchTab('story')" id="mob-btn-story" class="mob-tab-btn shrink-0 whitespace-nowrap px-3.5 py-2 bg-slate-800 text-slate-300 rounded-lg font-medium">
+                <i class="fa-solid fa-lightbulb mr-1"></i> <span data-i18n="nav.story">Problem Story</span>
+            </button>
+            <button onclick="switchTab('case-studies')" id="mob-btn-case-studies" class="mob-tab-btn shrink-0 whitespace-nowrap px-3.5 py-2 bg-slate-800 text-slate-300 rounded-lg font-medium">
+                <i class="fa-solid fa-folder-open mr-1"></i> <span data-i18n="nav.caseStudies">Case Studies</span>
+            </button>
+            <button onclick="switchTab('adaptability')" id="mob-btn-adaptability" class="mob-tab-btn shrink-0 whitespace-nowrap px-3.5 py-2 bg-slate-800 text-slate-300 rounded-lg font-medium">
+                <i class="fa-solid fa-sliders mr-1"></i> <span data-i18n="nav.adaptability">Adaptability</span>
+            </button>
+            <button onclick="switchTab('interactive-portfolio')" id="mob-btn-interactive-portfolio" class="mob-tab-btn shrink-0 whitespace-nowrap px-3.5 py-2 bg-slate-800 text-slate-300 rounded-lg font-medium">
+                <i class="fa-solid fa-laptop-code mr-1"></i> <span data-i18n="nav.interactivePortfolio">Interactive Portfolio</span>
+            </button>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT AREA -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8">
+
+        <!-- GLOBAL HERO HEADER CARD -->
+        <header class="glass-card rounded-3xl p-6 sm:p-8 relative overflow-hidden glow-cyan space-y-5">
+            <div class="absolute -right-20 -top-20 w-80 h-80 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none"></div>
+            <div class="absolute -left-20 -bottom-20 w-80 h-80 bg-violet-600/10 rounded-full blur-3xl pointer-events-none"></div>
+
+            <!-- Single line 1: Permit, Language, Nationality, Location Above Percentage Card & Summary -->
+            <div class="flex flex-wrap items-center gap-2 sm:gap-3 text-xs font-semibold relative z-10 border-b border-slate-800/80 pb-3">
+                <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 whitespace-nowrap">
+                    <i class="fa-solid fa-circle-check text-xs"></i> <span data-i18n="hero.permit">Unrestricted German Work Permit (Spouse Visa)</span>
+                </span>
+                <span class="text-slate-600 hidden sm:inline">•</span>
+                <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-500/10 text-amber-400 border border-amber-500/20 whitespace-nowrap">
+                    <i class="fa-solid fa-language text-xs"></i> <span data-i18n="hero.languages">Language: English (Fluent), German (A2.1)</span>
+                </span>
+                <span class="text-slate-600 hidden sm:inline">•</span>
+                <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-indigo-500/10 text-indigo-300 border border-indigo-500/20 whitespace-nowrap">
+                    <i class="fa-solid fa-passport text-xs"></i> <span data-i18n="hero.nationality">Nationality: Indian</span>
+                </span>
+                <span class="text-slate-600 hidden sm:inline">•</span>
+                <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-cyan-500/10 text-cyan-400 border border-cyan-500/20 whitespace-nowrap">
+                    <i class="fa-solid fa-location-dot text-xs"></i> <span data-i18n="hero.loc">Karlsfeld (Munich), Germany</span>
+                </span>
+            </div>
+
+            <!-- Main Headline + Summary + Percentage Cards -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10">
+                <div class="lg:col-span-8 space-y-4">
+                    <h1 class="text-2xl sm:text-4xl font-extrabold tracking-tight text-white leading-tight">
+                        <span data-i18n="hero.headline">Data Scientist & Problem Solver Turning</span> <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-teal-300" data-i18n="hero.headlineGradient">Messy Operations Into Scalable Business Impact</span>.
+                    </h1>
+
+                    <p class="text-slate-300 text-sm sm:text-base leading-relaxed" data-i18n="hero.summary">
+                        With over 6+ years of experience across global technology ecosystems (ex-Bosch BGSW), I specialize in uncovering systemic operational bottlenecks, engineering high-precision predictive pipelines, and building GenAI interfaces that empower non-technical teams.
+                    </p>
+                </div>
+
+                <!-- IMPACT HIGHLIGHT CARDS -->
+                <div class="lg:col-span-4 grid grid-cols-2 gap-3">
+                    <div class="bg-slate-900/90 p-4 rounded-2xl border border-slate-800 text-center space-y-1 hover:border-cyan-500/40 transition">
+                        <div class="text-2xl sm:text-3xl font-black text-cyan-400">40%</div>
+                        <div class="text-[10px] sm:text-xs text-slate-400 font-medium uppercase tracking-wider" data-i18n="impact.c1">Manual Reduction</div>
+                    </div>
+                    <div class="bg-slate-900/90 p-4 rounded-2xl border border-slate-800 text-center space-y-1 hover:border-teal-500/40 transition">
+                        <div class="text-2xl sm:text-3xl font-black text-teal-400">20+ Hrs</div>
+                        <div class="text-[10px] sm:text-xs text-slate-400 font-medium uppercase tracking-wider" data-i18n="impact.c2">Saved / Wk / Person</div>
+                    </div>
+                    <div class="bg-slate-900/90 p-4 rounded-2xl border border-slate-800 text-center space-y-1 hover:border-emerald-500/40 transition">
+                        <div class="text-2xl sm:text-3xl font-black text-emerald-400">95%</div>
+                        <div class="text-[10px] sm:text-xs text-slate-400 font-medium uppercase tracking-wider" data-i18n="impact.c3">Data Accuracy</div>
+                    </div>
+                    <div class="bg-slate-900/90 p-4 rounded-2xl border border-slate-800 text-center space-y-1 hover:border-amber-500/40 transition">
+                        <div class="text-2xl sm:text-3xl font-black text-amber-400">-15%</div>
+                        <div class="text-[10px] sm:text-xs text-slate-400 font-medium uppercase tracking-wider" data-i18n="impact.c4">Diagnostic Errors</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Single Line 2: Email, Phone, Availability & vCard Below Percentage Card & Summary -->
+            <div class="flex flex-wrap items-center justify-between gap-3 pt-3 border-t border-slate-800/80 text-xs sm:text-sm text-slate-300 relative z-10">
+                <div class="flex flex-wrap items-center gap-3">
+                    <a href="mailto:nidhi125patel@gmail.com" class="flex items-center gap-2 hover:text-cyan-400 transition font-medium">
+                        <i class="fa-solid fa-envelope text-cyan-400"></i> nidhi125patel@gmail.com
+                    </a>
+                    <span class="text-slate-600 hidden sm:inline">•</span>
+                    <a href="tel:+4915157764018" class="flex items-center gap-2 hover:text-cyan-400 transition font-medium">
+                        <i class="fa-solid fa-phone text-cyan-400"></i> +49 151 5776 4018
+                    </a>
+                    <span class="text-slate-600 hidden sm:inline">•</span>
+                    <span class="flex items-center gap-2 font-medium">
+                        <i class="fa-solid fa-briefcase text-cyan-400"></i> <span data-i18n="hero.avail">Available Immediately</span>
+                    </span>
+                    </a>
+                    <span class="text-slate-600 hidden sm:inline">•</span>
+                    <span class="flex items-center gap-2 font-medium">
+                        <i class="fa-solid fas fa-id-card text-cyan-400"></i> <span data-i18n="hero.birthdate">12.05.1998</span>
+                    </span>
+                </div>
+
+                <!-- vCard button integrated in single line -->
+                <button onclick="downloadVCard()" title="Save Contact vCard" class="px-3.5 py-1.5 bg-slate-800 hover:bg-slate-700 text-cyan-300 border border-slate-700 rounded-lg text-xs font-semibold flex items-center gap-1.5 transition">
+                    <i class="fa-solid fa-address-card text-cyan-400 text-sm"></i> <span>Download vCard</span>
+                </button>
+            </div>
+        </header>
+
+
+        <!-- TAB 1: COVER LETTER -->
+        <section id="content-cover-letter" class="tab-content space-y-6">
+            <div class="glass-card p-6 sm:p-10 rounded-3xl space-y-6">
+                <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 border-b border-slate-800 pb-6">
+                    <div>
+                        <span class="text-xs font-bold text-cyan-400 uppercase tracking-widest block mb-1" data-i18n="cover.sub">Domain-Agnostic Application Document</span>
+                        <h2 class="text-2xl sm:text-3xl font-bold text-white" data-i18n="cover.title">Cover Letter</h2>
+                    </div>
+                    <!-- Updated Expertise Domains Section -->
+                    <div class="text-xs text-slate-300 bg-slate-900/90 px-3.5 py-2 rounded-xl border border-slate-800">
+                        <span data-i18n="cover.expLabel">Interested Domains:</span> <span class="text-cyan-400 font-semibold">Travel & Aviation • Tech • Operations  • Automotive • Energy • E-Commerce • Healthcare • Finance</span>
+                    </div>
+                </div>
+
+                <div class="bg-slate-950 border border-slate-800 rounded-2xl p-6 sm:p-8 space-y-6 text-slate-300 text-sm sm:text-base leading-relaxed">
+                    <div class="border-b border-slate-800 pb-4 space-y-1 text-slate-400 text-xs sm:text-sm">
+                        <p><strong class="text-slate-200" data-i18n="cover.candLabel">Candidate:</strong> Nidhi Patel | Karlsfeld 85757, Germany | nidhi125patel@gmail.com | +49 151 5776 4018</p>
+                        <p><strong class="text-slate-200" data-i18n="cover.rolesLabel">Target Roles:</strong> Data Analyst | Data Scientist | ML/AI Engineer</p>
+                        <p><strong class="text-slate-200" data-i18n="cover.authLabel">Work Authorization:</strong> German Residence Permit with Unrestricted Work Permission (<em>Erwerbstätigkeit gestattet / Spouse Visa</em>) — No sponsorship required.</p>
+                    </div>
+
+                    <p data-i18n="cover.p1">Dear Hiring Team & Business Leaders,</p>
+
+                    <p data-i18n="cover.p2">
+                        Across every industry whether Automotive services, enterprise SaaS, travel & aviation, healthcare, or industrial operations the fundamental challenge of data science is rarely just building models; it is <strong>finding the true, underlying problem within noisy operational data and converting technical insights into efficient business decisions</strong>. Throughout my 6+ years as a Data Scientist and Analyst, my core strength has been identifying invisible process bottlenecks, establishing high-integrity data pipelines, and rapidly adapting my technical toolkit to meet evolving organizational requirements.
+                    </p>
+
+                    <p data-i18n="cover.p3">
+                        During my tenure as a <strong>Senior Data Scientist at Bosch Global Software Technologies (Jul 2022 – Jul 2025)</strong>, I led data validation and analytical frameworks for complex, high-dimensional system logs. Rather than relying on static, manual reporting, I proactively engineered an automated analytics pipeline that reduced manual effort by <strong>40%</strong> and saved cross-functional teams over 20 hours per week per engineer. Recognizing that non-technical stakeholders needed direct, barrier-free access to diagnostic data, I designed and deployed intuitive self-service Streamlit interfaces and GenAI natural-language querying tools. This reduced diagnostic error rates by <strong>15%</strong> and enabled teams to resolve root-cause anomalies significantly faster.
+                    </p>
+
+                    <p data-i18n="cover.p4">
+                        My career is built on continuous technical adaptation. When operational workflows demanded faster database access, I mastered natural language prompt translation and LLM pipelines. As cloud-native analytics matured, I deepened my expertise in PySpark, AWS infrastructure, vector databases, and MLOps practices.
+                    </p>
+
+                    <p data-i18n="cover.p5">
+                        Dedicated time to supporting family through a temporary health crisis, followed by my relocation to Germany, I dedicated the period from <strong>July 2025 to April 2026</strong> to structured, self-directed upskilling in advanced Generative AI architectures, RAG systems, and MLOps frameworks. To ensure seamless professional integration into German corporate environments, I am currently enrolled full-time in an intensive <strong>German Integration Course (B1 level, May 2026 – Present)</strong>.
+                    </p>
+
+                    <p data-i18n="cover.p6">
+                        Holding an unrestricted German Residence Permit (<em>Erwerbstätigkeit gestattet / Spouse Visa</em>), I am ready to bring my problem-first analytical mindset, root-cause diagnostic rigor, and rapid technical adaptability to your team immediately without requiring visa sponsorship.
+                    </p>
+
+                    <p data-i18n="cover.p7">
+                        I welcome the opportunity to discuss how my problem-solving experience and technical capabilities can drive operational efficiency and data-driven growth for your organization.
+                    </p>
+
+                    <div class="pt-4">
+                        <p class="font-semibold text-white" data-i18n="cover.sign">Sincerely,</p>
+                        <p class="text-cyan-400 font-bold text-lg mt-1">Nidhi Patel</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- TAB 2: PROBLEM SOLVING STORY -->
+        <section id="content-story" class="tab-content hidden space-y-8">
+            <div class="glass-card p-6 sm:p-10 rounded-3xl space-y-8">
+                <div class="text-center max-w-3xl mx-auto space-y-3">
+                    <span class="text-xs font-bold text-cyan-400 uppercase tracking-widest" data-i18n="story.sub">Philosophy & Methodology</span>
+                    <h2 class="text-3xl font-extrabold text-white" data-i18n="story.title">How I Approach Data: The Problem-Solving Cycle</h2>
+                    <p class="text-slate-400 text-sm" data-i18n="story.desc">
+                        Tools and frameworks change continuously. What remains constant is the need for rigorous root-cause analysis, proactive bottleneck identification, and measurable impact delivery.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+                    <div class="bg-slate-900 border border-slate-800 p-6 rounded-2xl space-y-3 hover:border-cyan-500/50 transition group">
+                        <div class="w-10 h-10 rounded-xl bg-cyan-500/10 text-cyan-400 flex items-center justify-center font-bold text-lg group-hover:bg-cyan-500 group-hover:text-slate-950 transition">1</div>
+                        <h3 class="text-lg font-bold text-white" data-i18n="story.step1Title">1. Problem Finding</h3>
+                        <p class="text-slate-400 text-xs leading-relaxed" data-i18n="story.step1Desc">
+                            Uncovering unseen operational friction—such as manual reporting loops, uncalibrated data noise, or communication gaps between technical teams and decision-makers.
+                        </p>
+                    </div>
+
+                    <div class="bg-slate-900 border border-slate-800 p-6 rounded-2xl space-y-3 hover:border-teal-500/50 transition group">
+                        <div class="w-10 h-10 rounded-xl bg-teal-500/10 text-teal-400 flex items-center justify-center font-bold text-lg group-hover:bg-teal-400 group-hover:text-slate-950 transition">2</div>
+                        <h3 class="text-lg font-bold text-white" data-i18n="story.step2Title">2. Root-Cause Analysis</h3>
+                        <p class="text-slate-400 text-xs leading-relaxed" data-i18n="story.step2Desc">
+                            Executing exploratory data analysis (EDA), anomaly detection, and cross-functional investigation to pinpoint exact fault vectors rather than treating symptoms.
+                        </p>
+                    </div>
+
+                    <div class="bg-slate-900 border border-slate-800 p-6 rounded-2xl space-y-3 hover:border-emerald-500/50 transition group">
+                        <div class="w-10 h-10 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center font-bold text-lg group-hover:bg-emerald-400 group-hover:text-slate-950 transition">3</div>
+                        <h3 class="text-lg font-bold text-white" data-i18n="story.step3Title">3. Adaptive Engineering</h3>
+                        <p class="text-slate-400 text-xs leading-relaxed" data-i18n="story.step3Desc">
+                            Learning and implementing the optimal technical solution—whether SQL data pipelines, predictive ML models, Streamlit apps, or GenAI prompt workflows.
+                        </p>
+                    </div>
+
+                    <div class="bg-slate-900 border border-slate-800 p-6 rounded-2xl space-y-3 hover:border-amber-500/50 transition group">
+                        <div class="w-10 h-10 rounded-xl bg-amber-500/10 text-amber-400 flex items-center justify-center font-bold text-lg group-hover:bg-amber-400 group-hover:text-slate-950 transition">4</div>
+                        <h3 class="text-lg font-bold text-white" data-i18n="story.step4Title">4. Stakeholder Impact</h3>
+                        <p class="text-slate-400 text-xs leading-relaxed" data-i18n="story.step4Desc">
+                            Translating complex output into intuitive, self-service tools, reducing diagnostic error rates, and saving engineering hours every week.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- TAB 3: CASE STUDIES -->
+        <section id="content-case-studies" class="tab-content hidden space-y-8">
+            <div class="glass-card p-6 sm:p-10 rounded-3xl space-y-8">
+                <div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+                    <div class="space-y-2">
+                        <span class="text-xs font-bold text-cyan-400 uppercase tracking-widest" data-i18n="cs.sub">Storytelling In Action</span>
+                        <h2 class="text-3xl font-extrabold text-white" data-i18n="cs.title">Domain-Agnostic Case Studies</h2>
+                    </div>
+                    <p class="text-slate-400 text-xs sm:text-sm max-w-md" data-i18n="cs.desc">
+                        Each project highlights the initial problem, root-cause diagnosis, technical skill adaptation, and final business impact.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                    <!-- CASE 1 -->
+                    <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 flex flex-col justify-between space-y-6 hover:border-slate-700 transition">
+                        <div class="space-y-4">
+                            <div class="flex items-center justify-between">
+                                <span class="px-2.5 py-1 rounded-md text-[11px] font-bold bg-cyan-500/10 text-cyan-400 border border-cyan-500/20">Data Engineering & Analytics</span>
+                                <span class="text-xs text-slate-500 font-mono">Ex-Bosch BGSW</span>
+                            </div>
+                            <h3 class="text-xl font-bold text-white leading-snug" data-i18n="cs.c1Title">
+                                Eliminating 60% of Manual Reporting in High-Dimensional Datasets
+                            </h3>
+
+                            <div class="space-y-3 text-xs leading-relaxed">
+                                <div class="bg-slate-950 p-3 rounded-lg border border-slate-800/80">
+                                    <strong class="text-rose-400 block mb-0.5" data-i18n="cs.pFound">🔍 Problem Found:</strong>
+                                    <span data-i18n="cs.c1P">Cross-functional teams spent 15+ hours weekly compiling operational metrics manually across fragmented logging systems.</span>
+                                </div>
+                                <div class="bg-slate-950 p-3 rounded-lg border border-slate-800/80">
+                                    <strong class="text-amber-400 block mb-0.5" data-i18n="cs.rCause">🕵️ Root Cause Diagnosis:</strong>
+                                    <span data-i18n="cs.c1R">Inconsistent data schemes across interface logs and lack of standardized data validation prior to analytical ingestion.</span>
+                                </div>
+                                <div class="bg-slate-950 p-3 rounded-lg border border-slate-800/80">
+                                    <strong class="text-cyan-400 block mb-0.5" data-i18n="cs.aSol">💡 Adaptive Solution:</strong>
+                                    <span data-i18n="cs.c1A">Engineered an automated Python/SQL validation pipeline achieving 98% data accuracy, combined with an interactive Streamlit self-service dashboard.</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="border-t border-slate-800 pt-4 flex items-center justify-between text-xs">
+                            <span class="text-slate-400" data-i18n="cs.impact">Impact Delivered:</span>
+                            <span class="font-bold text-emerald-400 bg-emerald-500/10 px-2.5 py-1 rounded border border-emerald-500/20">Saved 10+ Hours / Wk / Person</span>
+                        </div>
+                    </div>
+
+                    <!-- CASE 2 -->
+                    <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 flex flex-col justify-between space-y-6 hover:border-slate-700 transition">
+                        <div class="space-y-4">
+                            <div class="flex items-center justify-between">
+                                <span class="px-2.5 py-1 rounded-md text-[11px] font-bold bg-teal-500/10 text-teal-400 border border-teal-500/20">GenAI & Natural Language Interfaces</span>
+                                <span class="text-xs text-slate-500 font-mono">Ex-Bosch BGSW</span>
+                            </div>
+                            <h3 class="text-xl font-bold text-white leading-snug" data-i18n="cs.c2Title">
+                                Democratizing Complex Database Access via GenAI Text-to-SQL
+                            </h3>
+
+                            <div class="space-y-3 text-xs leading-relaxed">
+                                <div class="bg-slate-950 p-3 rounded-lg border border-slate-800/80">
+                                    <strong class="text-rose-400 block mb-0.5" data-i18n="cs.pFound">🔍 Problem Found:</strong>
+                                    <span data-i18n="cs.c2P">Non-technical domain experts faced severe bottlenecks when attempting to extract operational trends from SQL databases.</span>
+                                </div>
+                                <div class="bg-slate-950 p-3 rounded-lg border border-slate-800/80">
+                                    <strong class="text-amber-400 block mb-0.5" data-i18n="cs.rCause">🕵️ Root Cause Diagnosis:</strong>
+                                    <span data-i18n="cs.c2R">Heavy reliance on dedicated data science teams to write bespoke queries for every standard operational query.</span>
+                                </div>
+                                <div class="bg-slate-950 p-3 rounded-lg border border-slate-800/80">
+                                    <strong class="text-cyan-400 block mb-0.5" data-i18n="cs.aSol">💡 Adaptive Solution:</strong>
+                                    <span data-i18n="cs.c2A">Adapted skills to modern LLMs and prompt engineering to build a plain-English query interface translating user intent directly into validated SQL.</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="border-t border-slate-800 pt-4 flex items-center justify-between text-xs">
+                            <span class="text-slate-400" data-i18n="cs.impact">Impact Delivered:</span>
+                            <span class="font-bold text-emerald-400 bg-emerald-500/10 px-2.5 py-1 rounded border border-emerald-500/20">Instant Data Access for Teams</span>
+                        </div>
+                    </div>
+
+                    <!-- CASE 3 -->
+                    <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 flex flex-col justify-between space-y-6 hover:border-slate-700 transition">
+                        <div class="space-y-4">
+                            <div class="flex items-center justify-between">
+                                <span class="px-2.5 py-1 rounded-md text-[11px] font-bold bg-amber-500/10 text-amber-400 border border-amber-500/20">Predictive Modeling & Anomaly ML</span>
+                                <span class="text-xs text-slate-500 font-mono">Cross-Industry Framework</span>
+                            </div>
+                            <h3 class="text-xl font-bold text-white leading-snug" data-i18n="cs.c3Title">
+                                Predictive Anomaly Detection and Root-Cause Diagnostics
+                            </h3>
+
+                            <div class="space-y-3 text-xs leading-relaxed">
+                                <div class="bg-slate-950 p-3 rounded-lg border border-slate-800/80">
+                                    <strong class="text-rose-400 block mb-0.5" data-i18n="cs.pFound">🔍 Problem Found:</strong>
+                                    <span data-i18n="cs.c3P">Recurring system fault signals were only analyzed reactively after failure events, leading to high operational downtime.</span>
+                                </div>
+                                <div class="bg-slate-950 p-3 rounded-lg border border-slate-800/80">
+                                    <strong class="text-amber-400 block mb-0.5" data-i18n="cs.rCause">🕵️ Root Cause Diagnosis:</strong>
+                                    <span data-i18n="cs.c3R">Subtle multivariate correlation patterns across sub-components were invisible during standard single-variable monitoring.</span>
+                                </div>
+                                <div class="bg-slate-950 p-3 rounded-lg border border-slate-800/80">
+                                    <strong class="text-cyan-400 block mb-0.5" data-i18n="cs.aSol">💡 Adaptive Solution:</strong>
+                                    <span data-i18n="cs.c3A">Implemented supervised classification and time-series predictive modeling using Scikit-learn and Pandas feature engineering.</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="border-t border-slate-800 pt-4 flex items-center justify-between text-xs">
+                            <span class="text-slate-400" data-i18n="cs.impact">Impact Delivered:</span>
+                            <span class="font-bold text-emerald-400 bg-emerald-500/10 px-2.5 py-1 rounded border border-emerald-500/20">-15% System Diagnostic Errors</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- TAB 4: ADAPTABILITY & SKILLS -->
+        <section id="content-adaptability" class="tab-content hidden space-y-8">
+            <div class="glass-card p-6 sm:p-10 rounded-3xl space-y-8">
+                <div class="text-center max-w-3xl mx-auto space-y-3">
+                    <span class="text-xs font-bold text-cyan-400 uppercase tracking-widest" data-i18n="skills.sub">Continuous Learning</span>
+                    <h2 class="text-3xl font-extrabold text-white" data-i18n="skills.title">Technical Skillset & Adaptability</h2>
+                    <p class="text-slate-400 text-sm" data-i18n="skills.desc">
+                        A proven track record of picking up new libraries, cloud infrastructure, and AI paradigms based on project demands.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <!-- CAT 1 -->
+                    <div class="bg-slate-900 border border-slate-800 p-6 rounded-2xl space-y-4">
+                        <div class="flex items-center gap-3">
+                            <div class="p-2.5 rounded-lg bg-cyan-500/10 text-cyan-400 border border-cyan-500/20">
+                                <i class="fa-solid fa-database text-lg"></i>
+                            </div>
+                            <h3 class="font-bold text-white text-base">Data Analytics & SQL</h3>
+                        </div>
+                        <ul class="space-y-2 text-xs text-slate-300">
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-cyan-400"></i> Advanced SQL (PostgreSQL, MySQL)</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-cyan-400"></i> Python (Pandas, NumPy, Polars)</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-cyan-400"></i> Power BI & Tableau Dashboards</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-cyan-400"></i> Interactive Streamlit Apps</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-cyan-400"></i> A/B Testing & KPI Architecture</li>
+                        </ul>
+                    </div>
+
+                    <!-- CAT 2 -->
+                    <div class="bg-slate-900 border border-slate-800 p-6 rounded-2xl space-y-4">
+                        <div class="flex items-center gap-3">
+                            <div class="p-2.5 rounded-lg bg-teal-500/10 text-teal-400 border border-teal-500/20">
+                                <i class="fa-solid fa-brain text-lg"></i>
+                            </div>
+                            <h3 class="font-bold text-white text-base">Data Science & ML</h3>
+                        </div>
+                        <ul class="space-y-2 text-xs text-slate-300">
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-teal-400"></i> Predictive Machine Learning</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-teal-400"></i> Scikit-learn, PySpark, XGBoost</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-teal-400"></i> Time-Series Analysis & Forecasting</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-teal-400"></i> Anomaly Detection Algorithms</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-teal-400"></i> Feature Engineering & Pipelines</li>
+                        </ul>
+                    </div>
+
+                    <!-- CAT 3 -->
+                    <div class="bg-slate-900 border border-slate-800 p-6 rounded-2xl space-y-4">
+                        <div class="flex items-center gap-3">
+                            <div class="p-2.5 rounded-lg bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+                                <i class="fa-solid fa-wand-magic-sparkles text-lg"></i>
+                            </div>
+                            <h3 class="font-bold text-white text-base">GenAI & AI Stack</h3>
+                        </div>
+                        <ul class="space-y-2 text-xs text-slate-300">
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-400"></i> Text-to-SQL Prompt Interfaces</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-400"></i> Retrieval-Augmented Gen (RAG)</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-400"></i> LangChain & LlamaIndex</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-400"></i> Vector Databases (Chroma, Pinecone)</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-400"></i> LLM Evaluation & Prompt Tuning</li>
+                        </ul>
+                    </div>
+
+                    <!-- CAT 4 -->
+                    <div class="bg-slate-900 border border-slate-800 p-6 rounded-2xl space-y-4">
+                        <div class="flex items-center gap-3">
+                            <div class="p-2.5 rounded-lg bg-amber-500/10 text-amber-400 border border-amber-500/20">
+                                <i class="fa-solid fa-cloud text-lg"></i>
+                            </div>
+                            <h3 class="font-bold text-white text-base">Cloud & MLOps</h3>
+                        </div>
+                        <ul class="space-y-2 text-xs text-slate-300">
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-amber-400"></i> AWS Services (S3, Lambda, Glue)</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-amber-400"></i> Docker Containerization</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-amber-400"></i> Git & GitHub Actions CI/CD</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-amber-400"></i> RESTful APIs & Model Deployment</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-amber-400"></i> MongoDB & Document Stores</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- TAB 5: INTERACTIVE PORTFOLIO -->
+        <section id="content-interactive-portfolio" class="tab-content hidden space-y-10">
+
+            <!-- 1. CAREER STATUS IN GERMANY -->
+            <section class="glass-card rounded-2xl p-6 border-l-4 border-l-amber-500 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+                <div class="space-y-1">
+                    <div class="flex items-center gap-2">
+                        <span class="font-bold text-slate-100 text-sm sm:text-base flex items-center gap-2">
+                            <i class="fa-solid fa-graduation-cap text-amber-400"></i> <span data-i18n="port.statusTitle">Career Status in Germany & Continuous Upskilling</span>
+                        </span>
+                        <span class="bg-amber-500/20 text-amber-300 border border-amber-500/30 text-[10px] px-2 py-0.5 rounded font-semibold" data-i18n="port.statusBadge">Active Enrollment</span>
+                    </div>
+                    <p class="text-xs sm:text-sm text-slate-300">
+                        <strong class="text-white" data-i18n="port.c1">German Integration Course (A2 Level):</strong> <span data-i18n="port.c1Desc">Enrolled May 2026 – Present for language integration.</span><br>
+                        <strong class="text-white" data-i18n="port.c2">Transition & Upskilling (Jul 2025 – Apr 2026):</strong> <span data-i18n="port.c2Desc">Relocation to Karlsfeld, Germany, and dedicated hands-on update on modern Generative AI, RAG architectures, Vector DBs, and MLOps.</span>
+                    </p>
+                </div>
+                <div class="shrink-0 flex items-center gap-2 bg-slate-900/80 px-3.5 py-2 rounded-xl border border-slate-800 text-xs font-mono text-cyan-300">
+                    <i class="fa-solid fa-book-open text-amber-400"></i> Deutsch A2 In Progress
+                </div>
+            </section>
+
+            <!-- 2. WORK EXPERIENCE -->
+            <section class="space-y-6">
+                <div>
+                    <h2 class="text-xl font-extrabold text-white flex items-center gap-2">
+                        <i class="fa-solid fa-briefcase text-cyan-400"></i> <span data-i18n="exp.title">Work Experience</span>
+                    </h2>
+                    <p class="text-xs text-slate-400" data-i18n="exp.sub">Career history delivering measurable impact in data engineering, analytics & AI</p>
+                </div>
+
+                <div class="space-y-6 relative before:absolute before:inset-0 before:left-4 sm:before:left-5 before:w-0.5 before:bg-slate-800">
+
+                    <!-- Transition & German Integration (Jul 2025 - Present) -->
+                    <div class="relative pl-10 sm:pl-12">
+                        <div class="absolute left-1.5 sm:left-2.5 top-1.5 w-6 h-6 rounded-full bg-amber-500 text-slate-950 flex items-center justify-center text-xs font-extrabold ring-4 ring-slate-950">
+                            <i class="fa-solid fa-location-dot"></i>
+                        </div>
+                        <div class="glass-card p-5 rounded-2xl space-y-2 border-l-2 border-l-amber-500">
+                            <div class="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-1">
+                                <div>
+                                    <h3 class="font-bold text-white text-base sm:text-lg" data-i18n="exp.e0Title">Transition, Professional Development & German Language Integration</h3>
+                                    <div class="text-amber-400 text-xs font-semibold">Karlsfeld, Germany</div>
+                                </div>
+                                <span class="px-2.5 py-1 bg-amber-500/10 border border-amber-500/30 text-amber-300 font-mono text-xs rounded-full w-fit">
+                                    Jul 2025 – Present
+                                </span>
+                            </div>
+                            <ul class="text-xs sm:text-sm text-slate-300 space-y-1.5 list-disc list-inside">
+                                <li><strong class="text-white">May 2026 – Present:</strong> Currently attending full-time <strong>German Integration Course (A2 Level)</strong>, building German language proficiency for corporate environment.</li>
+                                <li><strong class="text-white">Jul 2025 – Apr 2026:</strong> Family transition to Germany alongside targeted self-directed upskilling in modern <strong>Generative AI, LangChain, RAG architecture, Vector DBs, and MLOps</strong>.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Bosch Global Software Technologies (Sr. Data Scientist) -->
+                    <div class="relative pl-10 sm:pl-12">
+                        <div class="absolute left-1.5 sm:left-2.5 top-1.5 w-6 h-6 rounded-full bg-cyan-500 text-slate-950 flex items-center justify-center text-xs font-extrabold ring-4 ring-slate-950">
+                            1
+                        </div>
+                        <div class="glass-card p-5 rounded-2xl space-y-3">
+                            <div class="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-1">
+                                <div>
+                                    <h3 class="font-bold text-white text-base sm:text-lg">Senior Data Scientist</h3>
+                                    <div class="text-cyan-400 text-xs font-semibold">Bosch Global Software Technologies | Bengaluru, India</div>
+                                </div>
+                                <span class="px-2.5 py-1 bg-slate-800 text-slate-300 font-mono text-xs rounded-full w-fit">
+                                    Jul 2022 – Jul 2025 (3 Years)
+                                </span>
+                            </div>
+                            <ul class="text-xs sm:text-sm text-slate-300 space-y-2 list-disc list-inside">
+                                <li>Led data analysis & validation pipeline for braking system sensors, achieving <strong class="text-cyan-400">98% data accuracy</strong> and accelerating root cause analysis.</li>
+                                <li>Engineered automated reporting framework, cutting manual reporting effort by <strong class="text-cyan-400">60%</strong> and accelerating data-driven decision-making.</li>
+                                <li>Built a Streamlit self-service analytics portal, saving engineering teams <strong class="text-cyan-400">10+ hours/week</strong>.</li>
+                                <li>Created GenAI natural language LLM interface allowing engineers to query sensor databases in plain English.</li>
+                                <li>Executed root cause failure analyses contributing to a <strong class="text-cyan-400">15% overall reduction in system errors</strong>.</li>
+                                <li>Acted as Department Single Point of Contact (SPOC) for Data Science & AI innovation, collaborating closely with teams in Germany.</li>
+                            </ul>
+                            <div class="flex flex-wrap gap-1.5 pt-1">
+                                <span class="skill-tag">Python</span>
+                                <span class="skill-tag">SQL</span>
+                                <span class="skill-tag">Streamlit</span>
+                                <span class="skill-tag">LLMs</span>
+                                <span class="skill-tag">Sensors Telemetry</span>
+                                <span class="skill-tag">Predictive Diagnostics</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Codewhiz Solutions -->
+                    <div class="relative pl-10 sm:pl-12">
+                        <div class="absolute left-1.5 sm:left-2.5 top-1.5 w-6 h-6 rounded-full bg-slate-600 text-white flex items-center justify-center text-xs font-extrabold ring-4 ring-slate-950">
+                            2
+                        </div>
+                        <div class="glass-card p-5 rounded-2xl space-y-3">
+                            <div class="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-1">
+                                <div>
+                                    <h3 class="font-bold text-white text-base sm:text-lg">Data Analyst Researcher</h3>
+                                    <div class="text-cyan-400 text-xs font-semibold">Codewhiz Solutions | Gandhinagar, India</div>
+                                </div>
+                                <span class="px-2.5 py-1 bg-slate-800 text-slate-300 font-mono text-xs rounded-full w-fit">
+                                    Jul 2020 – Jul 2022 (2 Years)
+                                </span>
+                            </div>
+                            <ul class="text-xs sm:text-sm text-slate-300 space-y-1.5 list-disc list-inside">
+                                <li>Analyzed core business KPIs and generated dynamic executive presentations to steer strategic decisions.</li>
+                                <li>Conducted quantitative survey data research and user analytics to optimize user booking retention.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Smart Bridge -->
+                    <div class="relative pl-10 sm:pl-12">
+                        <div class="absolute left-1.5 sm:left-2.5 top-1.5 w-6 h-6 rounded-full bg-slate-700 text-white flex items-center justify-center text-xs font-extrabold ring-4 ring-slate-950">
+                            3
+                        </div>
+                        <div class="glass-card p-5 rounded-2xl space-y-3">
+                            <div class="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-1">
+                                <div>
+                                    <h3 class="font-bold text-white text-base sm:text-lg">Machine Learning Intern</h3>
+                                    <div class="text-cyan-400 text-xs font-semibold">Smart Bridge | Hyderabad, India</div>
+                                </div>
+                                <span class="px-2.5 py-1 bg-slate-800 text-slate-300 font-mono text-xs rounded-full w-fit">
+                                    May 2020 – Jun 2020
+                                </span>
+                            </div>
+                            <ul class="text-xs sm:text-sm text-slate-300 space-y-1.5 list-disc list-inside">
+                                <li>Executed end-to-end data cleaning & EDA, boosting model performance accuracy by <strong class="text-cyan-400">20%</strong>.</li>
+                                <li>Built classification models achieving <strong class="text-cyan-400">95% classification accuracy</strong>.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Cybercom Creation -->
+                    <div class="relative pl-10 sm:pl-12">
+                        <div class="absolute left-1.5 sm:left-2.5 top-1.5 w-6 h-6 rounded-full bg-slate-800 text-slate-300 flex items-center justify-center text-xs font-extrabold ring-4 ring-slate-950">
+                            4
+                        </div>
+                        <div class="glass-card p-5 rounded-2xl space-y-3">
+                            <div class="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-1">
+                                <div>
+                                    <h3 class="font-bold text-white text-base sm:text-lg">Data Analyst Trainee</h3>
+                                    <div class="text-cyan-400 text-xs font-semibold">Cybercom Creation | Ahmedabad, India</div>
+                                </div>
+                                <span class="px-2.5 py-1 bg-slate-800 text-slate-300 font-mono text-xs rounded-full w-fit">
+                                    Aug 2019 – Apr 2020
+                                </span>
+                            </div>
+                            <ul class="text-xs sm:text-sm text-slate-300 space-y-1.5 list-disc list-inside">
+                                <li>Processed large datasets using SQL and MongoDB for optimized queries and storage.</li>
+                                <li>Created interactive BI dashboards to visualize key performance metrics for management.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- 3. FEATURED PROJECTS AND INNOVATIONS -->
+            <section class="space-y-6">
+                <div>
+                    <h2 class="text-xl font-extrabold text-white flex items-center gap-2">
+                        <i class="fa-solid fa-laptop-code text-cyan-400"></i> <span data-i18n="proj.title">Featured Projects & Innovations</span>
+                    </h2>
+                    <p class="text-xs text-slate-400" data-i18n="proj.sub">Interactive project cards with expandable technical details</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+                    <!-- Project 1 -->
+                    <div class="glass-card rounded-2xl p-5 flex flex-col justify-between space-y-4 hover:border-cyan-500/50 transition">
+                        <div class="space-y-2">
+                            <div class="flex justify-between items-start">
+                                <span class="p-2 bg-cyan-500/10 text-cyan-400 rounded-xl"><i class="fa-solid fa-car-battery text-lg"></i></span>
+                                <span class="text-[10px] font-mono bg-slate-800 text-cyan-300 px-2 py-0.5 rounded">Bosch Production</span>
+                            </div>
+                            <h3 class="font-bold text-white text-base">Braking Sensor Root Cause Diagnostic Engine</h3>
+                            <p class="text-xs text-slate-300 line-clamp-3">
+                                Automated validation and failure diagnosis engine processing sensor telemetry with 98% accuracy, reducing system diagnostic errors by 15%.
+                            </p>
+                        </div>
+                        <div class="space-y-3">
+                            <div class="flex flex-wrap gap-1">
+                                <span class="skill-tag">Python</span>
+                                <span class="skill-tag">SQL</span>
+                                <span class="skill-tag">Diagnostics</span>
+                            </div>
+                            <button onclick="toggleProjectModal('p1')" class="w-full py-2 bg-slate-800 hover:bg-slate-700 text-cyan-400 rounded-xl text-xs font-semibold flex items-center justify-center gap-1.5 transition">
+                                <i class="fa-solid fa-layer-group"></i> <span data-i18n="proj.viewBtn">View Architecture & Metrics</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Project 2 -->
+                    <div class="glass-card rounded-2xl p-5 flex flex-col justify-between space-y-4 hover:border-violet-500/50 transition">
+                        <div class="space-y-2">
+                            <div class="flex justify-between items-start">
+                                <span class="p-2 bg-violet-500/10 text-violet-400 rounded-xl"><i class="fa-solid fa-robot text-lg"></i></span>
+                                <span class="text-[10px] font-mono bg-slate-800 text-violet-300 px-2 py-0.5 rounded">GenAI Innovation</span>
+                            </div>
+                            <h3 class="font-bold text-white text-base">GenAI Text-to-SQL Sensor Query Assistant</h3>
+                            <p class="text-xs text-slate-300 line-clamp-3">
+                                LLM-powered natural language interface translating plain English questions into complex SQL queries over vehicle sensor databases.
+                            </p>
+                        </div>
+                        <div class="space-y-3">
+                            <div class="flex flex-wrap gap-1">
+                                <span class="skill-tag">LLMs</span>
+                                <span class="skill-tag">LangChain</span>
+                                <span class="skill-tag">Text-to-SQL</span>
+                            </div>
+                            <button onclick="toggleProjectModal('p2')" class="w-full py-2 bg-slate-800 hover:bg-slate-700 text-violet-400 rounded-xl text-xs font-semibold flex items-center justify-center gap-1.5 transition">
+                                <i class="fa-solid fa-layer-group"></i> <span data-i18n="proj.viewBtn">View Architecture & Metrics</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Project 3 -->
+                    <div class="glass-card rounded-2xl p-5 flex flex-col justify-between space-y-4 hover:border-emerald-500/50 transition">
+                        <div class="space-y-2">
+                            <div class="flex justify-between items-start">
+                                <span class="p-2 bg-emerald-500/10 text-emerald-400 rounded-xl"><i class="fa-solid fa-chart-simple text-lg"></i></span>
+                                <span class="text-[10px] font-mono bg-slate-800 text-emerald-300 px-2 py-0.5 rounded">Streamlit Tool</span>
+                            </div>
+                            <h3 class="font-bold text-white text-base">Streamlit Self-Service Analytics Portal</h3>
+                            <p class="text-xs text-slate-300 line-clamp-3">
+                                Interactive self-service dashboard saving engineers 10+ hours per week by replacing manual reporting with real-time KPI visualization.
+                            </p>
+                        </div>
+                        <div class="space-y-3">
+                            <div class="flex flex-wrap gap-1">
+                                <span class="skill-tag">Streamlit</span>
+                                <span class="skill-tag">Pandas</span>
+                                <span class="skill-tag">KPI Dashboards</span>
+                            </div>
+                            <button onclick="toggleProjectModal('p3')" class="w-full py-2 bg-slate-800 hover:bg-slate-700 text-emerald-400 rounded-xl text-xs font-semibold flex items-center justify-center gap-1.5 transition">
+                                <i class="fa-solid fa-layer-group"></i> <span data-i18n="proj.viewBtn">View Architecture & Metrics</span>
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- 4. EDUCATION & THESIS & BOSCH AWARDS -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+                <!-- Education & Thesis -->
+                <section class="glass-card p-6 rounded-2xl space-y-4">
+                    <h2 class="text-lg font-bold text-white flex items-center gap-2">
+                        <i class="fa-solid fa-graduation-cap text-cyan-400"></i> <span data-i18n="edu.title">Education & Thesis</span>
+                    </h2>
+                    <div>
+                        <h3 class="font-bold text-white text-base">Bachelor of Engineering in Computer Engineering</h3>
+                        <div class="text-cyan-400 text-xs font-semibold">Gandhinagar Institute of Technology, Gujarat, India (Jun 2015 – Jun 2019)</div>
+                        
+                        <div class="mt-2 inline-block px-3 py-1 bg-emerald-500/10 border border-emerald-500/30 text-emerald-300 text-xs font-bold rounded-lg">
+                            CGPA: 9.11 / 10 (German Grade Equivalent: 1.53 - Very Good)
+                        </div>
+
+                        <div class="mt-4 p-3.5 bg-slate-900/80 rounded-xl border border-slate-800 text-xs space-y-1.5 text-slate-300">
+                            <span class="font-bold text-white block">Bachelor Thesis: "Grow Organic using IoT"</span>
+                            <p>Designed Arduino IoT sensor network tracking soil moisture, temperature, and humidity. Built time-series & decision-tree ML models to predict moisture levels and automate irrigation scheduling via Streamlit.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Bosch Awards & Certifications -->
+                <section class="glass-card p-6 rounded-2xl space-y-4">
+                    <h2 class="text-lg font-bold text-white flex items-center gap-2">
+                        <i class="fa-solid fa-trophy text-amber-400"></i> <span data-i18n="awards.title">Bosch Awards & Certifications</span>
+                    </h2>
+                    
+                    <div class="grid grid-cols-2 gap-2 text-xs">
+                        <div class="p-3 bg-slate-900/80 rounded-xl border border-slate-800 space-y-1">
+                            <i class="fa-solid fa-award text-amber-400 text-base"></i>
+                            <div class="font-bold text-white">Innovation Award</div>
+                            <div class="text-[11px] text-slate-400">Automated reporting (60% effort reduction)</div>
+                        </div>
+                        <div class="p-3 bg-slate-900/80 rounded-xl border border-slate-800 space-y-1">
+                            <i class="fa-solid fa-star text-amber-400 text-base"></i>
+                            <div class="font-bold text-white">Rockstar Award</div>
+                            <div class="text-[11px] text-slate-400">Top Performer of the Year</div>
+                        </div>
+                        <div class="p-3 bg-slate-900/80 rounded-xl border border-slate-800 space-y-1">
+                            <i class="fa-solid fa-gem text-amber-400 text-base"></i>
+                            <div class="font-bold text-white">Gem-Extra Miler</div>
+                            <div class="text-[11px] text-slate-400">GenAI Innovation & Efficiency</div>
+                        </div>
+                        <div class="p-3 bg-slate-900/80 rounded-xl border border-slate-800 space-y-1">
+                            <i class="fa-solid fa-handshake text-amber-400 text-base"></i>
+                            <div class="font-bold text-white">Collaborator Award</div>
+                            <div class="text-[11px] text-slate-400">Cross-functional problem solving</div>
+                        </div>
+                    </div>
+
+                    <div class="pt-2">
+                        <span class="text-xs font-bold text-slate-300 block mb-1">Key Certifications:</span>
+                        <div class="flex flex-wrap gap-1 text-[11px]">
+                            <span class="px-2 py-0.5 bg-slate-800 text-slate-300 rounded">AWS Fundamentals</span>
+                            <span class="px-2 py-0.5 bg-slate-800 text-slate-300 rounded">Big Data with PySpark</span>
+                            <span class="px-2 py-0.5 bg-slate-800 text-slate-300 rounded">Machine Learning & Deep Learning</span>
+                            <span class="px-2 py-0.5 bg-slate-800 text-slate-300 rounded">Data Science Math Skills</span>
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+
+            <!-- 5. INTERACTIVE CODE AND QUERY SANDBOX -->
+            <section class="glass-card rounded-3xl p-6 space-y-4 glow-violet">
+                <div class="flex flex-col sm:flex-row justify-between sm:items-center gap-2">
+                    <div>
+                        <h2 class="text-xl font-extrabold text-white flex items-center gap-2">
+                            <i class="fa-solid fa-terminal text-cyan-400"></i> <span data-i18n="sandbox.title">Interactive Code & Query Sandbox</span>
+                        </h2>
+                        <p class="text-xs text-slate-400" data-i18n="sandbox.sub">Test Nidhi's sample data pipelines, SQL queries, and GenAI Text-to-SQL logic live in browser</p>
+                    </div>
+                    <span class="px-2.5 py-1 bg-slate-900 text-cyan-400 font-mono text-xs rounded-lg border border-slate-800 w-fit">
+                        <i class="fa-solid fa-play text-emerald-400 mr-1"></i> Interactive Execution Engine
+                    </span>
+                </div>
+
+                <!-- Sandbox Tabs -->
+                <div class="flex border-b border-slate-800 space-x-4 text-xs font-semibold overflow-x-auto no-scrollbar">
+                    <button onclick="switchSandboxTab('sql')" id="tab-sql" class="sandbox-tab pb-2 border-b-2 border-cyan-400 text-cyan-400 transition whitespace-nowrap">
+                        <i class="fa-solid fa-database mr-1"></i> 1. Sensor Telemetry SQL Query
+                    </button>
+                    <button onclick="switchSandboxTab('python')" id="tab-python" class="sandbox-tab pb-2 border-b-2 border-transparent text-slate-400 hover:text-slate-200 transition whitespace-nowrap">
+                        <i class="fa-brands fa-python mr-1"></i> 2. Python Pandas EDA Diagnostic
+                    </button>
+                    <button onclick="switchSandboxTab('genai')" id="tab-genai" class="sandbox-tab pb-2 border-b-2 border-transparent text-slate-400 hover:text-slate-200 transition whitespace-nowrap">
+                        <i class="fa-solid fa-wand-magic-sparkles mr-1"></i> 3. GenAI Prompt-to-SQL Converter
+                    </button>
+                </div>
+
+                <!-- Tab 1: SQL Sandbox -->
+                <div id="sandbox-sql" class="space-y-3">
+                    <div class="bg-slate-900 rounded-xl p-3 border border-slate-800 font-mono text-xs text-cyan-300">
+                        <div class="flex justify-between text-slate-500 pb-2 mb-2 border-b border-slate-800">
+                            <span>sql_sensor_query.sql</span>
+                            <span>PostgreSQL / MySQL</span>
+                        </div>
+                        <pre class="overflow-x-auto"><code>SELECT 
+    sensor_id,
+    subsystem_name,
+    COUNT(CASE WHEN error_code IS NOT NULL THEN 1 END) AS error_count,
+    ROUND(AVG(pressure_psi)::numeric, 2) AS avg_pressure,
+    ROUND(STDDEV(temperature_c)::numeric, 2) AS temp_variance
+FROM braking_telemetry_logs
+WHERE timestamp >= NOW() - INTERVAL '7 days'
+GROUP BY sensor_id, subsystem_name
+HAVING COUNT(CASE WHEN error_code IS NOT NULL THEN 1 END) > 5
+ORDER BY error_count DESC;</code></pre>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <button onclick="runSQLSandbox()" class="px-4 py-2 bg-gradient-to-r from-cyan-500 to-cyan-600 hover:from-cyan-600 hover:to-cyan-700 text-white font-semibold rounded-xl text-xs flex items-center gap-2 shadow transition cursor-pointer">
+                            <i class="fa-solid fa-play"></i> Run SQL Query
+                        </button>
+                        <span id="sql-time" class="text-[11px] font-mono text-slate-500">Execution time: --</span>
+                    </div>
+                    <!-- Output Table -->
+                    <div id="sql-output" class="hidden bg-slate-950 rounded-xl p-3 border border-slate-800 overflow-x-auto text-xs font-mono">
+                        <div class="text-emerald-400 font-bold mb-2"><i class="fa-solid fa-check-circle"></i> Query Executed Successfully (4 records returned)</div>
+                        <table class="w-full text-left text-slate-300">
+                            <thead class="bg-slate-900 text-cyan-400 border-b border-slate-800">
+                                <tr>
+                                    <th class="p-2">sensor_id</th>
+                                    <th class="p-2">subsystem_name</th>
+                                    <th class="p-2">error_count</th>
+                                    <th class="p-2">avg_pressure</th>
+                                    <th class="p-2">temp_variance</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-slate-900">
+                                <tr><td class="p-2 font-bold text-amber-400">BRK-9021</td><td class="p-2">Front Left Caliper</td><td class="p-2 text-rose-400 font-bold">18</td><td class="p-2">142.50</td><td class="p-2">14.82</td></tr>
+                                <tr><td class="p-2 font-bold text-amber-400">BRK-4011</td><td class="p-2">ABS Valve Module</td><td class="p-2 text-rose-400 font-bold">12</td><td class="p-2">128.10</td><td class="p-2">11.35</td></tr>
+                                <tr><td class="p-2 font-bold">BRK-3304</td><td class="p-2">Master Cylinder</td><td class="p-2 font-bold text-amber-400">8</td><td class="p-2">155.00</td><td class="p-2">8.20</td></tr>
+                                <tr><td class="p-2 font-bold">BRK-1088</td><td class="p-2">Rear Brake Pad Unit</td><td class="p-2 font-bold text-amber-400">6</td><td class="p-2">110.40</td><td class="p-2">6.95</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Tab 2: Python Sandbox -->
+                <div id="sandbox-python" class="hidden space-y-3">
+                    <div class="bg-slate-900 rounded-xl p-3 border border-slate-800 font-mono text-xs text-violet-300">
+                        <div class="flex justify-between text-slate-500 pb-2 mb-2 border-b border-slate-800">
+                            <span>eda_diagnostics.py</span>
+                            <span>Python 3.11 / Pandas</span>
+                        </div>
+                        <pre class="overflow-x-auto"><code>import pandas as pd
+import numpy as np
+
+# Load braking sensor log telemetry dataset
+df = pd.DataFrame({
+    'timestamp': pd.date_range(start='2026-01-01', periods=5, freq='H'),
+    'sensor_id': ['BRK-9021', 'BRK-9021', 'BRK-4011', 'BRK-3304', 'BRK-9021'],
+    'pressure_psi': [142.5, 185.0, 128.1, 155.0, 192.3],
+    'is_fault': [False, True, False, False, True]
+})
+
+# Calculate anomaly flags based on threshold
+pressure_mean = df['pressure_psi'].mean()
+pressure_std = df['pressure_psi'].std()
+df['anomaly_flag'] = df['pressure_psi'] > (pressure_mean + 1.2 * pressure_std)
+
+print("--- Diagnostic Summary ---")
+print(f"Total Telemetry Readings: {len(df)}")
+print(f"Anomalies Detected: {df['anomaly_flag'].sum()}")
+print(df[['sensor_id', 'pressure_psi', 'anomaly_flag']])</code></pre>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <button onclick="runPythonSandbox()" class="px-4 py-2 bg-gradient-to-r from-violet-500 to-violet-600 hover:from-violet-600 hover:to-violet-700 text-white font-semibold rounded-xl text-xs flex items-center gap-2 shadow transition cursor-pointer">
+                            <i class="fa-solid fa-play"></i> Execute Python Snippet
+                        </button>
+                        <span id="py-time" class="text-[11px] font-mono text-slate-500">Execution time: --</span>
+                    </div>
+                    <div id="py-output" class="hidden bg-slate-950 rounded-xl p-3 border border-slate-800 font-mono text-xs text-emerald-400 whitespace-pre overflow-x-auto">--- Diagnostic Summary ---
+Total Telemetry Readings: 5
+Anomalies Detected: 2
+
+  sensor_id  pressure_psi  anomaly_flag
+0  BRK-9021         142.5         False
+1  BRK-9021         185.0          True  <-- High Pressure Failure
+2  BRK-4011         128.1         False
+3  BRK-3304         155.0         False
+4  BRK-9021         192.3          True  <-- High Pressure Failure</div>
+                </div>
+
+                <!-- Tab 3: GenAI Prompt Sandbox -->
+                <div id="sandbox-genai" class="hidden space-y-3">
+                    <div class="bg-slate-900 rounded-xl p-3 border border-slate-800 space-y-2">
+                        <label class="text-xs font-semibold text-slate-300 block">Enter Plain-English Query for Sensor Database (LLM Text-to-SQL Simulator):</label>
+                        <div class="flex flex-col sm:flex-row gap-2">
+                            <input id="genai-input" type="text" value="Show top 3 sensors with highest failure rates in last quarter" class="w-full bg-slate-950 border border-slate-700 rounded-lg px-3 py-2 text-xs text-white focus:outline-none focus:border-cyan-400 font-sans">
+                            <button onclick="runGenAISandbox()" class="shrink-0 px-4 py-2 bg-emerald-600 hover:bg-emerald-500 text-white font-semibold rounded-lg text-xs flex items-center justify-center gap-1.5 transition cursor-pointer">
+                                <i class="fa-solid fa-wand-magic-sparkles"></i> Translate
+                            </button>
+                        </div>
+                    </div>
+                    <div id="genai-output" class="hidden bg-slate-950 rounded-xl p-3 border border-slate-800 space-y-2 font-mono text-xs">
+                        <div class="text-cyan-400 font-bold"><i class="fa-solid fa-robot"></i> LLM Generated SQL Query:</div>
+                        <pre class="bg-slate-900 p-2.5 rounded-lg text-slate-200 text-[11px] overflow-x-auto"><code>SELECT sensor_id, subsystem_name, COUNT(fault_id) AS total_failures
+FROM vehicle_diagnostics_db.sensor_events
+WHERE timestamp >= '2026-01-01' AND status = 'CRITICAL'
+GROUP BY sensor_id, subsystem_name
+ORDER BY total_failures DESC
+LIMIT 3;</code></pre>
+                        <div class="text-slate-400 text-[11px]">Explanation: The LLM model mapped "last quarter" to date filter and ordered by count of CRITICAL status flags.</div>
+                    </div>
+                </div>
+            </section>
+
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="border-t border-slate-800/80 py-8 text-center text-xs text-slate-500 space-y-2">
+        <div class="flex flex-wrap items-center justify-center gap-2 sm:gap-4 text-slate-400 font-medium px-4">
+            <a href="mailto:nidhi125patel@gmail.com" class="hover:text-cyan-400 transition">nidhi125patel@gmail.com</a>
+            <span>•</span>
+            <a href="tel:+4915157764018" class="hover:text-cyan-400 transition">+49 151 5776 4018</a>
+            <span>•</span>
+            <span>Karlsfeld 85757, Germany</span>
+        </div>
+        <p>© 2026 Nidhi Patel &bull; Data Analyst | Data Scientist | ML/AI Engineer</p>
+        <p class="text-slate-600">Unrestricted German Residence Permit (Erwerbstätigkeit gestattet / Spouse Visa)</p>
+    </footer>
+
+    <!-- PROJECT ARCHITECTURE MODAL -->
+    <div id="project-modal" class="fixed inset-0 bg-slate-950/80 backdrop-blur-md z-50 flex items-center justify-center p-4 hidden">
+        <div class="glass-card rounded-3xl max-w-2xl w-full p-6 space-y-4 border border-slate-700 shadow-2xl relative max-h-[90vh] overflow-y-auto">
+            <button onclick="toggleProjectModal('')" class="absolute top-4 right-4 text-slate-400 hover:text-white text-xl font-bold">&times;</button>
+            <div id="modal-content"></div>
+        </div>
+    </div>
+
+    <!-- TOAST NOTIFICATION -->
+    <div id="toast" class="fixed bottom-5 right-5 bg-cyan-600 text-white px-4 py-2.5 rounded-xl shadow-xl text-xs font-semibold flex items-center gap-2 transform translate-y-20 opacity-0 transition-all duration-300 z-50">
+        <i class="fa-solid fa-circle-check"></i> <span id="toast-msg">Action completed!</span>
+    </div>
+
+    <!-- JAVASCRIPT FOR TABS, DEEPL TRANSLATION & INTERACTION -->
+    <script>
+        let currentTab = 'cover-letter';
+        let isGerman = false;
+
+        // Dynamic German Translation Dictionary covering all sections
+        const translations = {
+            de: {
+                "nav.coverLetter": "Anschreiben",
+                "nav.story": "Problemlösungs-Story",
+                "nav.caseStudies": "Fallstudien",
+                "nav.adaptability": "Anpassungsfähigkeit",
+                "nav.interactivePortfolio": "Interaktives Portfolio",
+                "hero.permit": "Uneingeschränkte deutsche Arbeitserlaubnis (Ehegattenvisum)",
+                "hero.languages": "Sprachen: Englisch (Fließend), Deutsch (A2.1)",
+                "hero.nationality": "Nationalität: Indisch",
+                "hero.loc": "Karlsfeld (München), Deutschland",
+                "hero.headline": "Data Scientist & Problemlöser transformiert",
+                "hero.headlineGradient": "komplexe Prozesse in skalierbaren Geschäftsnutzen",
+                "hero.summary": "Mit über 6+ Jahren Erfahrung in globalen Technologie-Ökosystemen (u.a. Bosch BGSW) bin ich spezialisiert auf die Identifizierung betrieblicher Engpässe, Entwicklung präziser Vorhersage-Pipelines und den Aufbau von GenAI-Schnittstellen.",
+                "hero.avail": "Sofort verfügbar (Kein Sponsoring erforderlich)",
+                "impact.c1": "Manuelle Reduzierung",
+                "impact.c2": "Gespart / Wk / Person",
+                "impact.c3": "Datengenauigkeit",
+                "impact.c4": "Diagnosefehler",
+                "cover.sub": "Interaktives Bewerbungsdokument",
+                "cover.title": "Branchenunabhängiges Anschreiben",
+                "cover.expLabel": "Fachbereiche:",
+                "cover.candLabel": "Bewerberin:",
+                "cover.rolesLabel": "Zielpositionen:",
+                "cover.authLabel": "Arbeitserlaubnis:",
+                "cover.p1": "Sehr geehrte Damen und Herren, sehr geehrte Führungskräfte,",
+                "cover.p2": "In jeder Branche – ob Finanzdienstleistungen, Enterprise SaaS, Reisen & Luftfahrt, Gesundheit oder Industrie – besteht die zentrale Herausforderung der Data Science selten nur darin, Modelle zu bauen; es geht darum, das tatsächliche, zugrundeliegende Problem in komplexen Betriebsdaten zu finden und technische Erkenntnisse in effiziente Unternehmensentscheidungen zu übersetzen.",
+                "cover.p3": "Während meiner Zeit als Senior Data Scientist bei Bosch Global Software Technologies (Jul 2022 – Jul 2025) leitete ich Datenvalidierungs-Frameworks für komplexe Systemprotokolle. Ich entwickelte eine automatisierte Analyse-Pipeline, die den manuellen Aufwand um 60% reduzierte und über 10 Stunden pro Woche und Ingenieur einsparte.",
+                "cover.p4": "Meine Karriere basiert auf kontinuierlicher technischer Anpassung. Als schnellere Datenbankzugriffe benötigt wurden, habe ich LLM-Pipelines und Prompt Engineering gemeistert.",
+                "cover.p5": "Nach dem Umzug meiner Familie nach Deutschland widmete ich die Zeit von Juli 2025 bis April 2026 gezieltem Selbststudium in Generativer KI, RAG-Systemen und MLOps. Für eine nahtlose berufliche Integration besuche ich derzeit einen intensiven Deutsch-Integrationskurs (A2-Niveau, seit Mai 2026).",
+                "cover.p6": "Mit einer uneingeschränkten Aufenthaltsgestattung (Erwerbstätigkeit gestattet / Ehegattenvisum) stehe ich Ihrem Team ab sofort ohne Visum-Sponsoring zur Verfügung.",
+                "cover.p7": "Ich freue mich auf die Gelegenheit, mich persönlich mit Ihnen auszutauschen.",
+                "cover.sign": "Mit freundlichen Grüßen,",
+                "story.sub": "Philosophie & Methodik",
+                "story.title": "Mein Datenansatz: Der Problemlösungszyklus",
+                "story.desc": "Werkzeuge und Frameworks verändern sich ständig. Was bleibt, ist die Notwendigkeit einer gründlichen Ursachenanalyse.",
+                "story.step1Title": "1. Problemerkennung",
+                "story.step1Desc": "Aufdecken verborgener betrieblicher Hürden – wie manuelle Berichtsschleifen oder unkalibriertes Datenrauschen.",
+                "story.step2Title": "2. Ursachenanalyse",
+                "story.step2Desc": "Durchführung explorativer Datenanalysen (EDA) und Anomalieerkennung.",
+                "story.step3Title": "3. Adaptive Entwicklung",
+                "story.step3Desc": "Erlernen und Umsetzen der optimalen technischen Lösung.",
+                "story.step4Title": "4. Mehrwert für Stakeholder",
+                "story.step4Desc": "Übersetzung komplexer Daten in intuitive Self-Service-Tools.",
+                "cs.sub": "Storytelling In Aktion",
+                "cs.title": "Branchenunabhängige Fallstudien",
+                "cs.desc": "Jedes Projekt beleuchtet das ursprüngliche Problem, die Diagnose, technische Anpassung und den geschäftlichen Nutzen.",
+                "cs.pFound": "🔍 Erkanntes Problem:",
+                "cs.rCause": "🕵️ Ursachenanalyse:",
+                "cs.aSol": "💡 Adaptive Lösung:",
+                "cs.impact": "Erzielte Wirkung:",
+                "skills.sub": "Kontinuierliches Lernen",
+                "skills.title": "Technisches Skillset & Anpassungsfähigkeit",
+                "skills.desc": "Eine nachgewiesene Erfolgsbilanz beim schnellen Erlernen neuer Bibliotheken und Frameworks.",
+                "port.statusTitle": "Karrierestatus in Deutschland & Weiterbildung",
+                "port.statusBadge": "Aktuell Eingeschrieben",
+                "port.c1": "Integrationskurs (Niveau A2):",
+                "port.c1Desc": "Eingeschrieben seit Mai 2026 zur Vertiefung der deutschen Sprachkenntnisse.",
+                "port.c2": "Orientierung & Upskilling (Jul 2025 – Apr 2026):",
+                "port.c2Desc": "Umzug nach Karlsfeld, Deutschland, und gezielte Weiterbildung in Generativer KI, RAG und MLOps.",
+                "exp.title": "Berufserfahrung",
+                "exp.sub": "Beruflicher Werdegang mit messbarem Nutzen in Data Engineering, Analytics & KI",
+                "exp.e0Title": "Orientierung, Berufliche Weiterbildung & Deutscher Integrationskurs",
+                "proj.title": "Ausgewählte Projekte & Innovationen",
+                "proj.sub": "Interaktive Projektkarten mit erweiterbaren technischen Details",
+                "proj.viewBtn": "Architektur & Metriken ansehen",
+                "edu.title": "Ausbildung & Abschlussarbeit",
+                "awards.title": "Bosch Auszeichnungen & Zertifikate",
+                "sandbox.title": "Interaktive Code- & Abfrage-Sandbox",
+                "sandbox.sub": "Testen Sie Nidhis Datenpipelines, SQL-Abfragen und GenAI-Text-to-SQL-Logik direkt im Browser"
+            },
+            en: {
+                "nav.coverLetter": "Cover Letter",
+                "nav.story": "Problem Solving Story",
+                "nav.caseStudies": "Case Studies",
+                "nav.adaptability": "Adaptability & Skills",
+                "nav.interactivePortfolio": "Interactive Portfolio",
+                "hero.permit": "Unrestricted German Work Permit (Spouse Visa)",
+                "hero.languages": "Language: English (Fluent), German (A2.1)",
+                "hero.nationality": "Nationality: Indian",
+                "hero.loc": "Karlsfeld (Munich), Germany",
+                "hero.headline": "Data Scientist & Problem Solver Turning",
+                "hero.headlineGradient": "Messy Operations Into Scalable Business Impact",
+                "hero.summary": "With over 6+ years of experience across global technology ecosystems (ex-Bosch BGSW), I specialize in uncovering systemic operational bottlenecks, engineering high-precision predictive pipelines, and building GenAI interfaces that empower non-technical teams.",
+                "hero.avail": "Available Immediately",
+                "impact.c1": "Manual Reduction",
+                "impact.c2": "Saved / Wk / Person",
+                "impact.c3": "Data Accuracy",
+                "impact.c4": "Diagnostic Errors",
+                "cover.sub": "Interactive Application Document",
+                "cover.title": "Domain-Agnostic Cover Letter",
+                "cover.expLabel": "Expertise Domains:",
+                "cover.candLabel": "Candidate:",
+                "cover.rolesLabel": "Target Roles:",
+                "cover.authLabel": "Work Authorization:",
+                "cover.p1": "Dear Hiring Team & Business Leaders,",
+                "cover.p2": "Across every industry—whether financial services, enterprise SaaS, travel & aviation, healthcare, or industrial operations—the fundamental challenge of data science is rarely just building models; it is finding the true, underlying problem within noisy operational data and converting technical insights into efficient business decisions.",
+                "cover.p3": "During my tenure as a Senior Data Scientist at Bosch Global Software Technologies (Jul 2022 – Jul 2025), I led data validation and analytical frameworks for complex, high-dimensional system logs.",
+                "cover.p4": "My career is built on continuous technical adaptation. When operational workflows demanded faster database access, I mastered natural language prompt translation and LLM pipelines.",
+                "cover.p5": "Following my family’s relocation to Germany, I dedicated the period from July 2025 to April 2026 to structured, self-directed upskilling in advanced Generative AI architectures, RAG systems, and MLOps frameworks. To ensure seamless professional integration into German corporate environments, I am currently enrolled full-time in an intensive German Integration Course (A2 level, May 2026 – Present).",
+                "cover.p6": "Holding an unrestricted German Residence Permit (Erwerbstätigkeit gestattet / Spouse Visa), I am ready to bring my problem-first analytical mindset, root-cause diagnostic rigor, and rapid technical adaptability to your team immediately without requiring visa sponsorship.",
+                "cover.p7": "I welcome the opportunity to discuss how my problem-solving experience and technical capabilities can drive operational efficiency and data-driven growth for your organization.",
+                "cover.sign": "Sincerely,",
+                "story.sub": "Philosophy & Methodology",
+                "story.title": "How I Approach Data: The Problem-Solving Cycle",
+                "story.desc": "Tools and frameworks change continuously. What remains constant is the need for rigorous root-cause analysis, proactive bottleneck identification, and measurable impact delivery.",
+                "story.step1Title": "1. Problem Finding",
+                "story.step1Desc": "Uncovering unseen operational friction—such as manual reporting loops, uncalibrated data noise, or communication gaps between technical teams and decision-makers.",
+                "story.step2Title": "2. Root-Cause Analysis",
+                "story.step2Desc": "Executing exploratory data analysis (EDA), anomaly detection, and cross-functional investigation to pinpoint exact fault vectors rather than treating symptoms.",
+                "story.step3Title": "3. Adaptive Engineering",
+                "story.step3Desc": "Learning and implementing the optimal technical solution—whether SQL data pipelines, predictive ML models, Streamlit apps, or GenAI prompt workflows.",
+                "story.step4Title": "4. Stakeholder Impact",
+                "story.step4Desc": "Translating complex output into intuitive, self-service tools, reducing diagnostic error rates, and saving engineering hours every week.",
+                "cs.sub": "Storytelling In Action",
+                "cs.title": "Domain-Agnostic Case Studies",
+                "cs.desc": "Each project highlights the initial problem, root-cause diagnosis, technical skill adaptation, and final business impact.",
+                "cs.pFound": "🔍 Problem Found:",
+                "cs.rCause": "🕵️ Root Cause Diagnosis:",
+                "cs.aSol": "💡 Adaptive Solution:",
+                "cs.impact": "Impact Delivered:",
+                "skills.sub": "Continuous Learning",
+                "skills.title": "Technical Skillset & Adaptability",
+                "skills.desc": "A proven track record of picking up new libraries, cloud infrastructure, and AI paradigms based on project demands.",
+                "port.statusTitle": "Career Status in Germany & Continuous Upskilling",
+                "port.statusBadge": "Active Enrollment",
+                "port.c1": "German Integration Course (A2 Level):",
+                "port.c1Desc": "Enrolled May 2026 – Present for language integration.",
+                "port.c2": "Transition & Upskilling (Jul 2025 – Apr 2026):",
+                "port.c2Desc": "Relocation to Karlsfeld, Germany, and dedicated hands-on update on modern Generative AI, RAG architectures, Vector DBs, and MLOps.",
+                "exp.title": "Work Experience",
+                "exp.sub": "Career history delivering measurable impact in data engineering, analytics & AI",
+                "exp.e0Title": "Transition, Professional Development & German Language Integration",
+                "proj.title": "Featured Projects & Innovations",
+                "proj.sub": "Interactive project cards with expandable technical details",
+                "proj.viewBtn": "View Architecture & Metrics",
+                "edu.title": "Education & Thesis",
+                "awards.title": "Bosch Awards & Certifications",
+                "sandbox.title": "Interactive Code & Query Sandbox",
+                "sandbox.sub": "Test Nidhi's sample data pipelines, SQL queries, and GenAI Text-to-SQL logic live in browser"
+            }
+        };
+
+        // Switch Main Tabs
+        function switchTab(tabId) {
+            currentTab = tabId;
+            
+            document.querySelectorAll('.tab-content').forEach(el => {
+                el.classList.add('hidden');
+            });
+
+            const activeContent = document.getElementById(`content-${tabId}`);
+            if (activeContent) {
+                activeContent.classList.remove('hidden');
+            }
+
+            document.querySelectorAll('.main-tab-btn').forEach(btn => {
+                btn.classList.remove('bg-gradient-to-r', 'from-cyan-500', 'to-violet-600', 'text-white', 'shadow');
+                btn.classList.add('text-slate-400');
+            });
+
+            const activeBtn = document.getElementById(`tab-btn-${tabId}`);
+            if (activeBtn) {
+                activeBtn.classList.add('bg-gradient-to-r', 'from-cyan-500', 'to-violet-600', 'text-white', 'shadow');
+                activeBtn.classList.remove('text-slate-400');
+            }
+
+            document.querySelectorAll('.mob-tab-btn').forEach(btn => {
+                btn.classList.remove('bg-cyan-600', 'text-white');
+                btn.classList.add('bg-slate-800', 'text-slate-300');
+            });
+
+            const activeMobBtn = document.getElementById(`mob-btn-${tabId}`);
+            if (activeMobBtn) {
+                activeMobBtn.classList.add('bg-cyan-600', 'text-white');
+                activeMobBtn.classList.remove('bg-slate-800', 'text-slate-300');
+            }
+
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Toggle DeepL German Translation
+        function toggleGermanTranslation() {
+            isGerman = !isGerman;
+            const lang = isGerman ? 'de' : 'en';
+            const btnText = document.getElementById('translate-btn-text');
+            
+            if (isGerman) {
+                btnText.innerHTML = "EN";
+                showToast("Translated to German (DeepL)");
+            } else {
+                btnText.innerHTML = "DE";
+                showToast("Switched back to English");
+            }
+
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (translations[lang] && translations[lang][key]) {
+                    el.innerHTML = translations[lang][key];
+                }
+            });
+        }
+
+        // Sandbox Tab Switching
+        function switchSandboxTab(tab) {
+            document.querySelectorAll('.sandbox-tab').forEach(t => {
+                t.classList.remove('border-cyan-400', 'text-cyan-400');
+                t.classList.add('border-transparent', 'text-slate-400');
+            });
+            document.getElementById(`tab-${tab}`).classList.add('border-cyan-400', 'text-cyan-400');
+            document.getElementById(`tab-${tab}`).classList.remove('border-transparent', 'text-slate-400');
+
+            document.getElementById('sandbox-sql').classList.add('hidden');
+            document.getElementById('sandbox-python').classList.add('hidden');
+            document.getElementById('sandbox-genai').classList.add('hidden');
+
+            document.getElementById(`sandbox-${tab}`).classList.remove('hidden');
+        }
+
+        // Run SQL Sandbox
+        function runSQLSandbox() {
+            const output = document.getElementById('sql-output');
+            const timeSpan = document.getElementById('sql-time');
+            output.classList.remove('hidden');
+            timeSpan.innerText = `Execution time: ${(Math.random() * 12 + 8).toFixed(1)}ms`;
+            showToast("SQL Query Executed Successfully!");
+        }
+
+        // Run Python Sandbox
+        function runPythonSandbox() {
+            const output = document.getElementById('py-output');
+            const timeSpan = document.getElementById('py-time');
+            output.classList.remove('hidden');
+            timeSpan.innerText = `Execution time: ${(Math.random() * 25 + 15).toFixed(1)}ms`;
+            showToast("Python Script Executed Successfully!");
+        }
+
+        // Run GenAI Sandbox
+        function runGenAISandbox() {
+            const output = document.getElementById('genai-output');
+            output.classList.remove('hidden');
+            showToast("LLM Prompt Translated to SQL!");
+        }
+
+        // Download Contact vCard
+        function downloadVCard() {
+            const vCardData = `BEGIN:VCARD
+VERSION:3.0
+N:Patel;Nidhi;;;
+FN:Nidhi Patel
+TITLE:Data Analyst | Data Scientist | ML/AI Engineer
+EMAIL;TYPE=INTERNET,HOME:nidhi125patel@gmail.com
+TEL;TYPE=CELL:+4915157764018
+ADR;TYPE=HOME:;;Karlsfeld 85757;Bavaria;;Germany
+NOTE:Unrestricted German Residence Permit (Spouse Visa) - No sponsorship required
+END:VCARD`;
+
+            const blob = new Blob([vCardData], { type: 'text/vcard' });
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'Nidhi_Patel_Contact.vcf';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            window.URL.revokeObjectURL(url);
+            showToast("vCard downloaded!");
+        }
+
+        // Toast Notification Function
+        function showToast(msg) {
+            const toast = document.getElementById('toast');
+            const toastMsg = document.getElementById('toast-msg');
+            toastMsg.innerText = msg;
+            toast.classList.remove('translate-y-20', 'opacity-0');
+            setTimeout(() => {
+                toast.classList.add('translate-y-20', 'opacity-0');
+            }, 3000);
+        }
+
+        // Toggle Project Architecture Modal
+        function toggleProjectModal(pId) {
+            const modal = document.getElementById('project-modal');
+            const modalContent = document.getElementById('modal-content');
+
+            if (!pId) {
+                modal.classList.add('hidden');
+                return;
+            }
+
+            let html = '';
+            if (pId === 'p1') {
+                html = `
+                    <div class="space-y-4">
+                        <div class="flex items-center gap-3">
+                            <span class="p-2.5 bg-cyan-500/10 text-cyan-400 rounded-xl text-xl"><i class="fa-solid fa-car-battery"></i></span>
+                            <div>
+                                <h3 class="text-xl font-bold text-white">Braking Sensor Root Cause Diagnostic Engine</h3>
+                                <p class="text-xs text-cyan-400">Production Deployment at Bosch BGSW</p>
+                            </div>
+                        </div>
+                        <div class="space-y-2 text-xs text-slate-300 leading-relaxed">
+                            <h4 class="font-bold text-white text-sm">System Architecture & Pipeline:</h4>
+                            <p>1. Ingests high-frequency CAN bus sensor logs from braking sub-assemblies.</p>
+                            <p>2. Executes dynamic Schema validation rules and cleans missing/out-of-bound pressure and temperature signals.</p>
+                            <p>3. Applies multivariate anomaly detection to tag early fault signatures prior to physical testing failure.</p>
+                            <div class="bg-slate-900 p-3 rounded-xl border border-slate-800 space-y-1 my-2">
+                                <span class="font-mono text-cyan-400 font-bold">Key Performance Indicators:</span>
+                                <ul class="list-disc list-inside text-[11px] text-slate-400">
+                                    <li>Data Validation Accuracy: <strong>98%</strong></li>
+                                    <li>Reduction in Diagnostic Errors: <strong>-15%</strong></li>
+                                    <li>Weekly Engineer Hours Saved: <strong>10+ Hours/Week</strong></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            } else if (pId === 'p2') {
+                html = `
+                    <div class="space-y-4">
+                        <div class="flex items-center gap-3">
+                            <span class="p-2.5 bg-violet-500/10 text-violet-400 rounded-xl text-xl"><i class="fa-solid fa-robot"></i></span>
+                            <div>
+                                <h3 class="text-xl font-bold text-white">GenAI Text-to-SQL Sensor Query Assistant</h3>
+                                <p class="text-xs text-violet-400">Generative AI LLM Integration</p>
+                            </div>
+                        </div>
+                        <div class="space-y-2 text-xs text-slate-300 leading-relaxed">
+                            <h4 class="font-bold text-white text-sm">System Architecture & Pipeline:</h4>
+                            <p>1. Plain-English prompts from domain engineers are parsed via LangChain / LLM prompt templates.</p>
+                            <p>2. Converts intent into target PostgreSQL schema queries with automated validation guardrails.</p>
+                            <p>3. Executes validated query and formats output as interactive tables and Streamlit visual charts.</p>
+                            <div class="bg-slate-900 p-3 rounded-xl border border-slate-800 space-y-1 my-2">
+                                <span class="font-mono text-violet-400 font-bold">Key Performance Indicators:</span>
+                                <ul class="list-disc list-inside text-[11px] text-slate-400">
+                                    <li>SQL Generation Accuracy: <strong>92%+</strong></li>
+                                    <li>Time-to-Insight Reduction: <strong>From Hours to Seconds</strong></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            } else if (pId === 'p3') {
+                html = `
+                    <div class="space-y-4">
+                        <div class="flex items-center gap-3">
+                            <span class="p-2.5 bg-emerald-500/10 text-emerald-400 rounded-xl text-xl"><i class="fa-solid fa-chart-simple"></i></span>
+                            <div>
+                                <h3 class="text-xl font-bold text-white">Streamlit Self-Service Analytics Portal</h3>
+                                <p class="text-xs text-emerald-400">Interactive Web Dashboard</p>
+                            </div>
+                        </div>
+                        <div class="space-y-2 text-xs text-slate-300 leading-relaxed">
+                            <h4 class="font-bold text-white text-sm">System Architecture & Pipeline:</h4>
+                            <p>1. Connects directly to analytical storage layers to pull aggregated KPI trends.</p>
+                            <p>2. Provides interactive parameter sliders, date pickers, and dynamic drill-downs.</p>
+                            <p>3. Allows non-technical stakeholders to export pre-validated Excel/PDF reports on demand.</p>
+                            <div class="bg-slate-900 p-3 rounded-xl border border-slate-800 space-y-1 my-2">
+                                <span class="font-mono text-emerald-400 font-bold">Key Performance Indicators:</span>
+                                <ul class="list-disc list-inside text-[11px] text-slate-400">
+                                    <li>Manual Reporting Effort Reduction: <strong>60%</strong></li>
+                                    <li>Active Internal Users: <strong>Cross-functional Engineering Teams</strong></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }
+
+            modalContent.innerHTML = html;
+            modal.classList.remove('hidden');
+        }
+    </script>
+</body>
+</html>

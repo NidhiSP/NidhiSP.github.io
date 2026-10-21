@@ -1282,17 +1282,18 @@ LIMIT 3;</code></pre>
         // Download Contact vCard
         function downloadVCard() {
             const vCardData = `BEGIN:VCARD
-VERSION:3.0
-N:Patel;Nidhi;;;
-FN:Nidhi Patel
-TITLE:Data Analyst | Data Scientist | ML/AI Engineer
-EMAIL;TYPE=INTERNET,HOME:nidhi125patel@gmail.com
-TEL;TYPE=CELL:+4915157764018
-ADR;TYPE=HOME:;;Karlsfeld 85757;Bavaria;;Germany
-NOTE:Unrestricted German Residence Permit (Spouse Visa) - No sponsorship required
-END:VCARD`;
+            VERSION:3.0
+            N:Patel;Nidhi;;;
+            FN:Nidhi Patel
+            TITLE:Data Analyst | Data Scientist | ML/AI Engineer
+            EMAIL;TYPE=INTERNET,HOME:nidhi125patel@gmail.com
+            TEL;TYPE=CELL:+4915157764018
+            ADR;TYPE=HOME:;;Karlsfeld 85757;Bavaria;;Germany
+            URL:https://nidhisp.github.io/
+            NOTE:Unrestricted German Residence Permit (Spouse Visa) - No sponsorship required
+            END:VCARD`;
 
-            const blob = new Blob([vCardData], { type: 'text/vcard' });
+            const blob = new Blob([vCardData], { type: 'text/vcard;charset=utf-8' });
             const url = window.URL.createObjectURL(blob);
             const a = document.createElement('a');
             a.href = url;
